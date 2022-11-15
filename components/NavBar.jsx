@@ -23,6 +23,7 @@ const NavBar = () => {
           style={{ height: "1.5rem", width: "1.5rem" }}
         />
         <span>Rechercher</span>
+        <div className="underline"></div>
       </Link>
       <Link href={"/"} className="nav-item">
         <FontAwesomeIcon
