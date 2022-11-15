@@ -9,7 +9,7 @@
     color: $hoverColor;
     span{
       color: $hoverColor;
-      transition:color 0.2s 
+      transition:color 0.5s ease-in-out
     }
   }
 }
