@@ -41,6 +41,7 @@ a {
 
   .nav-item {  
     margin-bottom: 5rem;
+    padding-top: 5rem;
     @extend %icons;   
     @include flexbox(center, center);
     padding: 0;
@@ -58,7 +59,6 @@ a {
   &:hover {
     align-items: flex-start;
     width: 172px;
-    color:
 
     span{
       color: #FFF;

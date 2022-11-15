@@ -3,4 +3,13 @@
 %icons{
   font-weight: 600;
   color: $mainColor;
+  font-size: $sousTitre;
+
+  &:hover{
+    color: $hoverColor;
+    span{
+      color: $hoverColor;
+      transition:color 0.2s 
+    }
+  }
 }
