@@ -1,11 +1,13 @@
 @import 'mixin.scss';
 @import './variables';
 @import '_placeholders';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;800&display=swap');
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, 'Roboto', Oxygen, Ubuntu, Cantarell, Open San, Helvetica Neue, sans-serif;
+  font-family: Poppins, sans-serif;
   color: #FFFF;
   font-weight: 400;
   z-index: 1;
@@ -17,62 +19,191 @@ a {
 }
 
 * {
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
+
 // App
 .app-container {
   display: flex;
-  background-image: url(../public/Background.jpg);
+  background-image: url(../public/bg-5.jpg);
   background-size: cover;
+  background-position: center;
   background-attachment: fixed;
 }
+
+
 
 //NavBar Latérale
 .nav-container {
   min-height: 100vh;
   width: 62px;
+  position: fixed;
   @include flexbox(flex-start, flex-start);
   flex-direction: column;
-  background: transparent;
+  background: $card-gradient;
   border-right: $mainColor 1px solid;
   overflow-x: hidden;
   padding-top: 3rem;
   padding-bottom: 3rem;
   transition: width 0.2s ease-out;
 
-  .nav-item {  
-    margin-bottom: 5rem;
-    padding-top: 5rem;
-    @extend %icons;   
+  .nav-item {
+    margin: 5rem 1rem 5rem 1rem;
+    @extend %icons;
     @include flexbox(center, center);
-    padding: 0;
     background-color: transparent;
     cursor: pointer;
 
-
-    span{
+    span {
       position: absolute;
       left: 50px;
       transition: color 0.05s linear, visibility 0.25s ease-in;
       color: #FFF0;
       padding: 0rem 0rem 0rem 1rem;
       font-size: $sousTitre;
-      visibility: hidden; 
+      visibility: hidden;
     }
   }
+
   &:hover {
-    
+
     align-items: flex-start;
-    width: 172px;
+    width: 12rem;
     transition: width 0.3s ease-out;
 
-    span{
+    span {
       visibility: visible;
       transition: color 0.5s ease-in, border-bottom 0.5s ease-in;
       color: #FFF;
     }
   }
 }
+
+.main-page{
+  @include flexbox(center,center);
+  flex-direction: column
+}
+
+// HERO
+
+.hero-section {
+  @include flexbox(flex-start, center);
+  flex-direction: column;
+  height: 100vh;
+  padding-left: 10rem;
+  padding-bottom: 10rem;
+
+  .hero-card{
+    // @include card($card-gradient, 20px, 50vh, 50vw, auto, 100px);
+    padding: 2rem;
+    img{
+      box-shadow: none;
+    }
+  }
+  
+
+  h3 {
+    font-weight: 400;
+  }
+  .underline{
+    border: 1px solid $mainColor;
+    width: 40vw;
+    margin-top: 1rem;
+  }
+
+  .hero-text {
+    @include flexbox(flex-start, center);
+    flex-direction: column;
+
+
+    h1 {
+      font-weight: 800;
+      font-size: 96px;
+      color: $mainColor;
+    }
+
+    h3 {
+      margin-top: 5rem;
+      font-weight: 300;
+      font-size: 20px;
+      transition: color 0.2s ease-in;
+
+      &:hover {
+        color: $hoverColor;
+        transition: color 0.2s ease-in;
+      }
+    }
+
+    p {
+      font-weight: 100;
+      width: 50%;
+      margin-bottom:2rem
+    }
+  }
+}
+
+.articles-container {
+  @include flexbox(flex-start, flex-start);
+  height: 100vh;
+  padding-left: 5rem;
+  flex-direction: column;
+  flex-wrap: wrap;
+  .section-title{
+    width: 40vw;
+    border-bottom: solid 1px $mainColor; 
+  }
+
+  .card-container {
+
+    @include flexbox(center, center);
+    flex-direction: column;
+    margin: 2rem;
+    @include card($card-gradient, 20px, 400px, 300px, 100px, 100px);
+    transition: background-color 0.2s ease-in;
+
+    section {
+      @include flexbox(center,center);
+      flex-direction: column;
+      h2{
+        font-size: 20px;
+        margin-top: 2rem;
+        text-align: center;
+      }
+    }
+
+    .img-profil {
+      height: 3rem;
+      width: 3rem;
+      border: #FFF 1px solid;
+      border-radius: 50%;
+      margin-right: 2rem;
+    }
+
+    .infos-container {
+      margin-top: 1rem;
+      @include flexbox(center, space-around);
+    }
+    .tags-logo {
+      @include flexbox(center, center);
+      margin-top: 1.5rem;
+      img{
+        box-shadow: none;
+        margin-right: 1rem;
+        margin-left: 1rem;
+        border-radius: 0%;
+        height: 2rem;
+        width: 2rem;
+      }
+    }
+    &:hover {
+      background-color: $hoverColor;
+      transition: background-color 0.2s ease-in;
+    }
+  }
+}
+
 
 
 

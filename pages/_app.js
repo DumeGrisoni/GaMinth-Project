@@ -1,5 +1,5 @@
-import "../styles/globals.scss";
 import "@fortawesome/fontawesome-svg-core/styles.css"; // import Font Awesome CSS
+import "../styles/globals.scss";
 import { config } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;
 import NavBar from "../components/NavBar";

@@ -4,15 +4,14 @@
   font-weight: 600;
   color: $mainColor;
   font-size: $sousTitre;
-  
+  transition: color 0.25s ease-in;
 
   &:hover{
     color: $hoverColor;
+    transition: color 0.25s ease-in;
     span{
       transition:color 0.25s ease-in;
-    }
-    .underline {
-      background-color: red;
+      color: $hoverColor;
     }
   }
 }

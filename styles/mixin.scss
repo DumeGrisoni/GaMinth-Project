@@ -1,7 +1,24 @@
+
 @mixin flexbox($align, $justify) {
   display: flex;
-  padding-left: 1rem;
-  padding-right: 1rem;
   align-items: $align;
   justify-content: $justify;
 }
+
+@mixin card($bg, $r, $h, $w, $ih, $iw) {
+  padding: 0.5rem;
+  background: $bg;
+  border: 1px solid #FFF;
+  border-radius: $r;
+  height: $h;
+  width: $w;
+  backdrop-filter: blur(5px);
+  
+  img {
+    height: $ih;
+    width: $iw;
+    box-shadow:8px 5px 15px 1px rgba(0, 0, 0, 0.7);
+    border-radius: 2rem;
+    
+  }
+  }
