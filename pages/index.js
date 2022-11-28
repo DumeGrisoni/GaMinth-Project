@@ -1,50 +1,19 @@
 import groq from "groq";
 import { getClient } from "../lib/sanity.server";
-import Image from "next/image";
-import logo from "../public/logo.png";
-import Card from "../components/Card";
-import Link from "next/link";
-import Head from "next/head";
 
-const Home = ({ articles }) => {
+import Hero from "../components/Hero";
+import CategoryContainer from "../components/CategoryContainer";
+import ArticleContainer from "../layouts/ArticleContainer";
+import Header from "../layouts/Header";
+
+const Home = ({ articles, categories }) => {
+  console.log(categories);
   return (
     <div className="main-page">
-      <section className="hero-section">
-        <div className="hero-card">
-          <Head>
-            <title>GaMinth</title>
-            <meta
-              name="viewport"
-              content="initial-scale=1.0, width=device-width"
-            />
-          </Head>
-          <section className="hero-text">
-            <Image src={logo} width={150} height={150} />
-            <h1>GaMinth.</h1>
-            <br />
-            <p>
-              Tout sur la création d’asset de jeux video de manière à ce que
-              tous puissent en profiter !
-            </p>
-            <br />
-            <Link href={"/"}>
-              <h3>En savoir plus . . .</h3>
-            </Link>
-            <div className="underline"></div>
-          </section>
-        </div>
-      </section>
-
-      <section className="articles-container">
-        <div className="section-title">
-          <h3>Dernier article</h3>
-        </div>
-        {articles.map((article) => (
-          <Link href="/" key={article._id}>
-            <Card article={article} />
-          </Link>
-        ))}
-      </section>
+      <Header />
+      <Hero />
+      <CategoryContainer categories={categories} />
+      <ArticleContainer articles={articles} />
     </div>
   );
 };
@@ -63,9 +32,15 @@ export async function getStaticProps({ preview = true }) {
       slug,
       "Publication" : publishedAt,
     }`);
+  const categories = await getClient(preview).fetch(groq`
+     *[_type == "category"] {
+        _id,
+        title,
+     }`);
   return {
     props: {
       articles,
+      categories,
     },
   };
 }

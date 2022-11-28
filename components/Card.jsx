@@ -7,7 +7,6 @@ const Card = ({ article }) => {
         <img
           src={urlFor(article.Miniature)}
           alt={"image de " + article.title}
-          className="miniature"
         />
         <h2>{article.title}</h2>
       </section>
@@ -29,7 +28,11 @@ const Card = ({ article }) => {
       </div>
       <div className="tags-logo">
         {article.Categories.map((category) => (
-          <img src={urlFor(category.logo)} alt={"Logo de " + category.title} />
+          <img
+            src={urlFor(category.logo)}
+            alt={"Logo de " + category.title}
+            key={category.id}
+          />
         ))}
       </div>
     </section>

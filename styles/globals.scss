@@ -82,9 +82,17 @@ a {
 }
 
 .main-page{
-  @include flexbox(center,center);
-  flex-direction: column
+  @include flexbox(flex-start,center);
+  flex-direction: column;
 }
+
+
+
+
+
+
+
+
 
 // HERO
 
@@ -96,14 +104,11 @@ a {
   padding-bottom: 10rem;
 
   .hero-card{
-    // @include card($card-gradient, 20px, 50vh, 50vw, auto, 100px);
     padding: 2rem;
     img{
       box-shadow: none;
     }
-  }
-  
-
+  } 
   h3 {
     font-weight: 400;
   }
@@ -144,22 +149,45 @@ a {
   }
 }
 
+
+// Catégories
+
+
+
+
+
+
+
+
+
+
+// Articles 
+
 .articles-container {
   @include flexbox(flex-start, flex-start);
   height: 100vh;
-  padding-left: 5rem;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
+  padding-left: 12rem;
   .section-title{
-    width: 40vw;
+    padding-top: 2vh;
+    width: 100%;
     border-bottom: solid 1px $mainColor; 
   }
+
+
+
+
+
+
+
+  // Articles Card
 
   .card-container {
 
     @include flexbox(center, center);
     flex-direction: column;
-    margin: 2rem;
+    margin-right: 5rem;
     @include card($card-gradient, 20px, 400px, 300px, 100px, 100px);
     transition: background-color 0.2s ease-in;
 
