@@ -1,8 +1,8 @@
 import React from "react";
 import Link from "next/link";
-import Card from "../components/Card";
+import Card from "../../components/Blog/Card";
 
-const ArticleContainer = ({ articles }) => {
+const ArticlesContainer = ({ articles }) => {
   return (
     <>
       <div className="section-title">
@@ -19,4 +19,4 @@ const ArticleContainer = ({ articles }) => {
   );
 };
 
-export default ArticleContainer;
+export default ArticlesContainer;

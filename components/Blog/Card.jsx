@@ -1,29 +1,28 @@
-import { urlFor } from "../lib/sanity";
+import { urlFor } from "../../lib/sanity";
 
 const Card = ({ article }) => {
+  const { Miniature, title, ImageProfil, Auteur, Publication } = article;
+
   return (
     <section className="card-container">
       <section>
-        <img
-          src={urlFor(article.Miniature)}
-          alt={"image de " + article.title}
-        />
-        <h2>{article.title}</h2>
+        <img src={urlFor(Miniature)} alt={"image de " + title} />
+        <h2>{title}</h2>
       </section>
 
       <br />
       <div className="infos-container">
         <img
-          src={urlFor(article.ImageProfil)}
-          alt={"image de profil de " + article?.Auteur}
+          src={urlFor(ImageProfil)}
+          alt={"image de profil de " + Auteur}
           className="img-profil"
         />
         <div className="info">
           <p>
-            Par : <b>{article.Auteur.toUpperCase()}</b>
+            Par : <b>{Auteur.toUpperCase()}</b>
           </p>
           <br />
-          <p>Le : {new Date(article.Publication).toDateString()}</p>
+          <p>Le : {new Date(Publication).toDateString()}</p>
         </div>
       </div>
       <div className="tags-logo">

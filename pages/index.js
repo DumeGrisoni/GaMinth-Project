@@ -1,9 +1,9 @@
 import groq from "groq";
 import { getClient } from "../lib/sanity.server";
 
-import Hero from "../components/Hero";
-import CategoryContainer from "../components/CategoryContainer";
-import ArticleContainer from "../layouts/ArticleContainer";
+import Hero from "../components/Blog/Hero";
+import CategoryContainer from "../components/Blog/CategoryContainer";
+import ArticlesContainer from "../layouts/Blog/ArticlesContainer";
 import Header from "../layouts/Header";
 
 const Home = ({ articles, categories }) => {
@@ -13,7 +13,7 @@ const Home = ({ articles, categories }) => {
       <Header />
       <Hero />
       <CategoryContainer categories={categories} />
-      <ArticleContainer articles={articles} />
+      <ArticlesContainer articles={articles} />
     </div>
   );
 };
@@ -26,7 +26,7 @@ export async function getStaticProps({ preview = true }) {
       _id,
       title,
       "Auteur": author->author,
-      "Categories": categories[]->{id, title, description, logo},
+      "Categories": categories[]->{id, title, logo},
       "ImageProfil": author->avatar,
       "Miniature" : miniature,
       slug,
